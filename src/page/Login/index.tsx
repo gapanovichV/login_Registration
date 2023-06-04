@@ -1,9 +1,33 @@
-import './style.sass'
+import { Link } from 'react-router-dom';
+import './style.scss';
 
 const Login = () => {
-  return (
-    <div>Log in</div>
-  )
-}
+	return (
+		<div className="wrapper">
+			<div className="wrapper_login">
+				<h2>Authorization</h2>
+				<div className="form">
+					<div className="username_block">
+						<label htmlFor="username">Username or Email:</label>
+						<input
+							id="username"
+							className="username"
+							type="Login"
+							placeholder="Username or Email"
+						/>
+					</div>
+					<div className="password_block">
+						<label htmlFor="password">Password:</label>
+						<input id="password" className="password" type="password" placeholder="Password" />
+					</div>
+				</div>
+				<div className="login_btn">
+					<button className="button">Sign in</button>
+					<Link to="/registration">need an account?</Link>
+				</div>
+			</div>
+		</div>
+	);
+};
 
-export default Login
+export default Login;
