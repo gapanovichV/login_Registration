@@ -5,7 +5,7 @@ const Registration = () => {
 		<div className="wrapper">
 			<div className="wrapper_login">
 				<h2>Registration</h2>
-				<div className="form">
+				<form id="sign_up" className="form">
 					<div className="username_block">
 						<label htmlFor="username">Username:</label>
 						<input id="username" className="username" type="login" placeholder="Username" />
@@ -27,9 +27,11 @@ const Registration = () => {
 							placeholder="Retype Password"
 						/>
 					</div>
-				</div>
+				</form>
 				<div className="login_btn">
-					<button className="button">Sign up</button>
+					<button form="sign_up" type="submit" className="button">
+						Sign up
+					</button>
 					<Link to="/login">you have account?</Link>
 				</div>
 			</div>

@@ -6,7 +6,7 @@ const Login = () => {
 		<div className="wrapper">
 			<div className="wrapper_login">
 				<h2>Authorization</h2>
-				<div className="form">
+				<form id="sign_in" className="form">
 					<div className="username_block">
 						<label htmlFor="username">Username or Email:</label>
 						<input
@@ -20,9 +20,11 @@ const Login = () => {
 						<label htmlFor="password">Password:</label>
 						<input id="password" className="password" type="password" placeholder="Password" />
 					</div>
-				</div>
+				</form>
 				<div className="login_btn">
-					<button className="button">Sign in</button>
+					<button form="sign_in" type="submit" className="button">
+						Sign in
+					</button>
 					<Link to="/registration">need an account?</Link>
 				</div>
 			</div>
