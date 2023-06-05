@@ -1,9 +1,8 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './style.scss';
 
-const Greeting = () => {
+const Greeting: React.FC = () => {
 	return (
 		<div className="wrapper">
 			<div className="greeting_block">

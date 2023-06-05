@@ -3,35 +3,35 @@
 }
 
 .form {
-  gap: 10px;
-  display: flex;
-  flex-direction: column;
+	gap: 10px;
+	display: flex;
+	flex-direction: column;
 }
 
-.username,
-.password,
-.email,
-.password_retype {
+.input_form {
 	margin-top: 2px;
-  border: none;
-  background-color: #e8e8e8;
-  border-radius: 10px;
-  padding: 10px;
-  outline: none;
+	border: none;
+	background-color: #e8e8e8;
+	border-radius: 10px;
+	padding: 10px;
+	outline: none;
 	&_block {
-    display: flex;
+		display: flex;
 		flex-direction: column;
+		.error {
+			color: #f70c0c;
+		}
 	}
 }
 
 .login_btn {
 	display: flex;
 	justify-content: center;
-  flex-direction: column;
+	flex-direction: column;
 	margin-top: 15px;
-  text-align: center;
-  a {
-    margin-top: 5px;
-    color: blue
-  }
+	text-align: center;
+	a {
+		margin-top: 5px;
+		color: blue;
+	}
 }

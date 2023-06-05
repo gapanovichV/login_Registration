@@ -1,11 +1,12 @@
-import { Greeting, Login, Registration } from './page';
+import { Greeting, Login, Registration, ErrorPage } from './page';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Greeting/>
-  },
+	{
+		path: '/',
+		element: <Greeting />,
+		errorElement: <ErrorPage />,
+	},
 	{
 		path: '/Login',
 		element: <Login />,

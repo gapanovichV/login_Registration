@@ -25,3 +25,12 @@
 		font-style: 500;
 	}
 }
+
+button:disabled,
+button[disabled]{
+  background-color: #cccccc;
+  color: #666666;
+  &:hover {
+    background-color: #cccccc;
+  }
+}

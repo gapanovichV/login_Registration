@@ -1,39 +1,48 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-const Registration = () => {
+import { RegisterFormSchema } from '../../utils/schemas/validation';
+import { IRegisterForm } from './register.interface';
+import { FormField } from '../../components/FormField';
+
+import './style.scss';
+
+const Registration: React.FC = () => {
+	const form = useForm<IRegisterForm>({
+		mode: 'onChange',
+		resolver: yupResolver(RegisterFormSchema),
+	});
+
+	const onSubmit: SubmitHandler<IRegisterForm> = (data) => {
+		alert(JSON.stringify(data, null, 4));
+		form.reset();
+	};
+
 	return (
 		<div className="wrapper">
 			<div className="wrapper_login">
 				<h2>Registration</h2>
-				<form id="sign_up" className="form">
-					<div className="username_block">
-						<label htmlFor="username">Username:</label>
-						<input id="username" className="username" type="login" placeholder="Username" />
-					</div>
-					<div className="email_block">
-						<label htmlFor="email">Email:</label>
-						<input id="email" className="email" type="email" placeholder="Email" />
-					</div>
-					<div className="password_block">
-						<label htmlFor="password">Password:</label>
-						<input id="password" className="password" type="password" placeholder="Password" />
-					</div>
-					<div className="password_retype_block">
-						<label htmlFor="password_retype">Retype Password:</label>
-						<input
-							id="password_retype"
-							className="password_retype"
-							type="password"
-							placeholder="Retype Password"
-						/>
-					</div>
-				</form>
-				<div className="login_btn">
-					<button form="sign_up" type="submit" className="button">
-						Sign up
-					</button>
-					<Link to="/login">you have account?</Link>
-				</div>
+				<FormProvider {...form}>
+					<form action="/#" onSubmit={form.handleSubmit(onSubmit)} id="sign_up" className="form">
+						<FormField name="username" label="Username" />
+						<FormField name="email" label="Email" />
+						<FormField name="password" label="Password" />
+						<FormField name="confirm_password" label="Confirm Password" />
+						<div className="login_btn">
+							<button
+								disabled={!form.formState.isValid}
+								form="sign_up"
+								type="submit"
+								className="button"
+							>
+								Sign up
+							</button>
+							<Link to="/login">you have account?</Link>
+						</div>
+					</form>
+				</FormProvider>
 			</div>
 		</div>
 	);
