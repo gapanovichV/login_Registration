@@ -1,10 +1,29 @@
-import { Login, Registration } from "./page"
-const App = () => {
-  return (
-    <>
-    <Login/>
-    </>
-  )
-}
+import { Greeting, Login, Registration, ErrorPage } from './page';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-export default App
+const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <Greeting />,
+		errorElement: <ErrorPage />,
+	},
+	{
+		path: '/Login',
+		element: <Login />,
+		errorElement: <div>404</div>,
+	},
+	{
+		path: '/registration',
+		element: <Registration />,
+	},
+]);
+
+const App = () => {
+	return (
+		<>
+			<RouterProvider router={router} />
+		</>
+	);
+};
+
+export default App;
